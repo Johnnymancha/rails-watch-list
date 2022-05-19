@@ -1,0 +1,17 @@
+<body>
+  <h1>Hola est-ce que ça marche ? </h1>
+
+  <ul>
+  <% @lists.each do |list| %>
+    <li>
+      <%= link_to list_path(list) do %>
+        <%= list.name %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add a list', new_list_path %>
+
+
+</body>

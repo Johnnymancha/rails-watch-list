@@ -1,0 +1,15 @@
+<div>
+<!-- récupéré les fims associé à la listes  -->
+<!-- affiché ces films dans cette vue -->
+<h1>Voila le contenu de ta liste! Trou du cul!</h1>
+  <ul>
+  <% @list.movies.each do |movie| %>
+    <li><%= movie.title %></li>
+    <%bookmark_id = @bookmarks.find { |bookmark| bookmark.movie_id == movie.id} %>
+    <li><%= bookmark_id.comment %></li>
+    <li><img src=<%= movie.poster_url %> alt="es tu content?"></li>
+  <% end %>
+  </ul>
+<%= link_to 'Add a film', new_list_bookmark_path(@list) %>
+
+</div>
