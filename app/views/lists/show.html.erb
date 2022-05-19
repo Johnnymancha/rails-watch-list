@@ -1,12 +1,15 @@
 <div>
 <!-- récupéré les fims associé à la listes  -->
 <!-- affiché ces films dans cette vue -->
-<h1>Voila le contenu de ta liste! Trou du cul!</h1>
+<h1>Voila le contenu de <%= @list.name %>! Trou du cul!</h1>
   <ul>
   <% @list.movies.each do |movie| %>
     <li><%= movie.title %></li>
     <%bookmark_id = @bookmarks.find { |bookmark| bookmark.movie_id == movie.id} %>
-    <li><%= bookmark_id.comment %></li>
+    <li><%= bookmark_id.comment %> <%= link_to "Remove",
+                  bookmark_path(bookmark_id),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></li>
     <li><img src=<%= movie.poster_url %> alt="es tu content?"></li>
   <% end %>
   </ul>
