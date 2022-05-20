@@ -1,6 +1,11 @@
-<div>
-  <h1>List of movie type</h1>
+<div class="banner">
+  <div class="container">
+    <h1>List of movie type <strong>the best One!</strong></h1>
+    <p>Change your life and start to watch my Film list</p>
+    <a class="btn btn-flat" href="#">Apply now</a>
+  </div>
 </div>
+
 
 <div class="container">
 
@@ -10,6 +15,11 @@
     <li>
       <%= link_to list_path(list) do %>
         <%= list.name %>
+      <% end %>
+    </li>
+    <li>
+      <% if list.photo.attached?%>
+        <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
       <% end %>
     </li>
   <% end %>

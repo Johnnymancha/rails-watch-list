@@ -1,6 +1,7 @@
 <body>
 <%= simple_form_for @list do |l| %>
   <%= l.input :name, label: "List name" %>
+  <%= l.input :photo, as: :file %>
   <%= l.button :submit %>
 <% end %>
 </body>
